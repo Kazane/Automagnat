@@ -1,0 +1,84 @@
+.footer {
+	font-size: 1.4rem;
+	color: rgba($body, 0.64);
+	a {
+		color: $body;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.footer__content {
+	padding-top: 32px;
+	padding-bottom: 32px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 100%;
+	@include media(tablet) {
+		flex-direction: row;
+		flex-wrap: nowrap;
+		width: auto;
+		justify-content: space-between;
+	}
+}
+
+.footer--logo {
+	display: block;
+	margin-bottom: 24px;
+	@include media(tablet) {
+		margin-bottom: 0;
+		flex: 2;
+	}
+}
+
+.footer--social {
+	margin-bottom: 24px;
+	@include media(tablet) {
+		margin-bottom: 0;
+		flex: 1;
+		text-align: center;
+	}
+}
+
+.footer--copy {
+	@include media(tablet) {
+		flex: 2;
+		text-align: right;
+	}
+}
+
+/* CTA */
+
+.cta {
+	background-color: $main;
+	color: $white;
+	overflow: hidden;
+	.col2 {
+		margin-bottom: 32px;
+		@include media(tablet) {
+			margin-bottom: 0;	
+		}
+	}
+}
+
+.cta__wrapper {
+	padding-left: 24px;
+	padding-right: 24px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	box-sizing: border-box;
+	background: url(../../../../../../assets/common/img/cta_bg.svg) center center no-repeat;
+	@include media(tablet) {
+		padding-top: 64px;
+		padding-bottom: 64px;
+		padding-left: 32px;
+		padding-right: 32px;
+		max-width: 1200px;
+		margin: 0 auto;
+		background-position: right center;
+	}
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Automagnat - Продай свой авто быстро и выгодно!</title>
+	<meta name="keywords" content="Automagnat, sell, car, auto, покупка автомобиля">
+	<meta name="description" content="Продай свой авто быстро и выгодно, Sell your car fast and profitably">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="assets/common/js/main.js"></script>
+	<link rel="stylesheet" href="assets/common/css/main.css">
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="container">
+				<div class="header__wrapper">
+					<div class="header__logo">
+						<a href=""><img src="assets/common/img/logo.png" srcset="assets/common/img/logo@2x.png 2x" alt="Automagnat"></a>
+					</div>
+					<nav class="nav">
+						<div class="nav__wrapper">
+							<ul class="nav__group">
+								<li class="nav--item"><a class="sliding-link" href="#query">Подать заявку</a></li>
+								<li class="nav--item"><a class="sliding-link" href="#feedback">Отзывы</a></li>
+								<li class="nav--item"><a class="sliding-link" href="#contact">Контакт</a></li>
+							</ul>
+							<a href="" class="nav--lang">
+								<img src="assets/common/img/flag_ee.png" srcset="assets/common/img/flag_ee@2x.png 2x" alt="По Русски">
+							</a>
+						</div>
+					</nav>
+					<a href="tel:54624310" class="phone">
+						<svg class="icon--phone" width="17" height="18" viewBox="0 0 17 18" xmlns="http://www.w3.org/2000/svg"><path d="M10.808 6.525c-.48 1.05-1.13 1.837-2.12 2.83-.993.99-1.823 1.682-2.83 2.12l-.496-.497c-.395-.395-1.035-.448-1.57-.13l-3.464 1.95c-.33.195-.47.605-.31.915.014.026.03.05.045.073.862 2.36 1.606 3.52 2.23 3.484.94-.054 5.847-3.834 8.162-6.15 2.314-2.313 6.094-7.22 6.148-8.16.036-.625-1.125-1.368-3.483-2.23-.28-.203-.7-.12-.937.186-.02.025-.037.052-.053.08l-1.95 3.463c-.316.533-.263 1.174.13 1.568l.498.497z" fill="#3D4051" fill-rule="evenodd"/></svg>
+						<span class="phone--code">+372</span> <span class="phone--number">54-624-310</span>
+					</a>
+				</div>
+			</div>
+		</header>
+
+		<div class="hero">
+			<div class="container">
+				<div class="hero__row">
+					<div class="hero__sideimg">
+						<img src="assets/common/img/client.png" srcset="assets/common/img/client@2x.png 2x" alt="">
+					</div>
+					<div class="hero__desc">
+						<h1>Продай свой авто <br class="mob-hide"> быстро и выгодно</h1>
+						<p>
+							<ul class="list list--large">
+								<li class="list--item">Самые выгодные условия и цены на рынке Эстонии</li>
+								<li class="list--item">Покупка автомобиля любого года и состояния</li>
+								<li class="list--item">Быстрая выплата денег за автомобиль</li>
+								<li class="list--item">Ответ на заявку в течении 15 минут</li>
+							</ul>
+						</p>
+						<p><a href="#query" class="button sliding-link">Отправить запрос</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="section" id="query">
+			<div class="container">
+				<div class="row">
+					<div class="col2 col2--extra-padding">
+						<h2 class="fancy-title">Форма <br class="mob-hide"> предварительной <br class="mob-hide"> оценки</h2>
+						<p>На основании полученных данных транспортного средства, вы узнаете предварительную цену которую мы готовы вам предложить. Точная сумма выкупа будет озвучена после осмотра транспортного средства нашими специалистами.</p>
+						<p>Процедура оценки занимает около 15 минут.</p>
+					</div>
+					<div class="col2">
+						<form action="" class="query-form">
+							<div class="alert alert--error">Заполните вначале поле "Марка автомобиля"</div>
+							<div class="query-form__row">
+								<div class="field-group">
+									<label class="field-group--label" for="carbrand">Марка автомобиля</label>
+									<input class="field-group--input" id="carbrand" type="text">
+								</div>
+								<div class="field-group">
+									<label class="field-group--label" for="model">Модел</label>
+									<input class="field-group--input" id="model" type="text">
+								</div>
+							</div>
+							<div class="query-form__row">
+								<div class="field-group">
+									<label class="field-group--label" for="fuel">Топливо</label>
+									<input class="field-group--input" id="fuel" type="text">
+								</div>
+								<div class="field-group">
+									<label class="field-group--label" for="year">Год выпуска</label>
+									<select class="field-group--select"><option></option></select>
+								</div>
+							</div>
+							<div class="query-form__row">
+								<div class="field-group">
+									<label class="field-group--label" for="km">Показ одометра (км)</label>
+									<input class="field-group--input" id="km" type="text">
+								</div>
+								<div class="field-group">
+									<label class="field-group--label" for="checkup">Тех. осмотор</label>
+									<input class="field-group--input" id="checkup" type="text">
+								</div>
+							</div>
+							<div class="query-form__row">
+								<div class="field-group">
+									<label class="field-group--label" for="Engine">Двигатель</label>
+									<input class="field-group--input" id="Engine" type="text">
+								</div>
+								<div class="field-group">
+									<label class="field-group--label" for="price">Цена</label>
+									<input class="field-group--input" id="price" type="text">
+								</div>
+							</div>
+							<div class="query-form__row">
+								<div class="field-group">
+									<label class="field-group--label" for="name">Имя</label>
+									<input class="field-group--input" id="name" type="text">
+								</div>
+								<div class="field-group">
+									<label class="field-group--label" for="phone">Телефон</label>
+									<input class="field-group--input" id="phone" type="text">
+								</div>
+							</div>
+							<div class="query-form__row">
+								<div class="field-group">
+									<label class="field-group--label" for="email">Email</label>
+									<input class="field-group--input" id="email" type="text">
+								</div>
+								<div class="field-group">
+									<label class="field-group--label" for="carlocation">Местоположение автомобиля</label>
+									<input class="field-group--input" id="carlocation" type="text">
+								</div>
+							</div>
+							<div class="query-form__upload query-form--initial">
+								Перетащите или прикрепите фотографии
+								<p><a href="" class="query-form__upload--add add-button">Прикрепить файл</a></p>
+							</div>
+							<!-- <div class="query-form__upload">
+								<div class="query-form__upload--wrapper">
+									<div class="query-form__upload--col">
+										<a href="" class="query-form--remove"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icon_delete</title><defs><circle id="a" cx="8" cy="8" r="8"/></defs><g fill="none" fill-rule="evenodd"><g transform="translate(2 2)"><use fill="#C7C8D1" xlink:href="#a"/><circle stroke="#FFF" stroke-width="2" cx="8" cy="8" r="9"/></g><path d="M7 7l6 6m0-6l-6 6" stroke="#FFF" stroke-width="2"/></g></svg></a>
+										<span class="query-form--photo"><img src="https://a.d-cd.net/52a6e0as-480.jpg"></span>
+									</div>
+									<div class="query-form__upload--col">
+										<a href="" class="query-form--remove"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icon_delete</title><defs><circle id="a" cx="8" cy="8" r="8"/></defs><g fill="none" fill-rule="evenodd"><g transform="translate(2 2)"><use fill="#C7C8D1" xlink:href="#a"/><circle stroke="#FFF" stroke-width="2" cx="8" cy="8" r="9"/></g><path d="M7 7l6 6m0-6l-6 6" stroke="#FFF" stroke-width="2"/></g></svg></a>
+										<span class="query-form--photo"><img src="https://a.d-cd.net/52a6e0as-480.jpg"></span>
+									</div>
+									<div class="query-form__upload--col">
+										<a href="" class="query-form--remove"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icon_delete</title><defs><circle id="a" cx="8" cy="8" r="8"/></defs><g fill="none" fill-rule="evenodd"><g transform="translate(2 2)"><use fill="#C7C8D1" xlink:href="#a"/><circle stroke="#FFF" stroke-width="2" cx="8" cy="8" r="9"/></g><path d="M7 7l6 6m0-6l-6 6" stroke="#FFF" stroke-width="2"/></g></svg></a>
+										<span class="query-form--photo"><img src="https://a.d-cd.net/52a6e0as-480.jpg"></span>
+									</div>
+									<div class="query-form__upload--col">
+										<a href="" class="query-form__upload--add">Прикрепить файл</a>
+									</div>
+								</div>
+							</div> -->
+							<button class="button button--block">Отправить запрос</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="feedback">
+			<div class="container">
+				<div class="row">
+					<div class="col2 col2--extra-padding">
+						<h2 class="fancy-title">Отзывы <br> Клиентов</h2>
+						<div class="slider-controler">
+							<div class="slider-controler--group">
+								<input type="radio" name="spot" class="slider-point slide-to-1" checked>
+								<span></span>
+							</div>
+							<div class="slider-controler--group">
+								<input type="radio" name="spot" class="slider-point slide-to-2">
+								<span></span>
+							</div>
+							<div class="slider-controler--group">
+								<input type="radio" name="spot" class="slider-point slide-to-3">
+								<span></span>
+							</div>
+						</div>
+					</div>
+					<div class="col2">
+						<div class="feedback">
+							<div class="feedback-item item-1">
+								<figure class="feedback--pic">
+									<img src="https://data.fantlab.ru/images/autors/36649" alt="">
+								</figure>
+								<h3>Дмитрий Иванов</h3>
+								<p>Я был обладателем BMW 7 seria, после 15 лет использования и постоянного ремонта машины, было решено продать ее но проблема была в том что она никому была не нужна. После долгих раздумий, было решено обратится в automagnat.ee где мне предложили неплохую сумму за данный авто. Деньги перевели как и было обещено в течении 15 минут!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col2 col2--extra-padding">
+						<h2 class="fancy-title">Контактные <br> данные</h2>
+					</div>
+					<div class="col2">
+						<h3>Адрес</h3>
+						<p>Maredo OÜ <br> Registrikood : 11980935 <br> KMKR: EE101422558</p>
+						<p>Paljassaare tee 6, Tallinn 10313 <br> Harjumaa Eesti</p>
+						<p><h3>Телефон / Email</h3></p>
+						<p>(+372) 55-666-167 <br> <a href="">info@automagnat.ee</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="cta">
+			<div class="cta__wrapper">
+				<div class="row">
+					<div class="col2">
+						<h3 class="noindent">Отправьте запрос сейчас <br class="mob-hide"> и получите ответ в течении 15 минут</h3>
+					</div>
+					<div class="col2 col-align-right">
+						<a href="#query" class="button button--white sliding-link">Отправить запрос</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__content">
+					<a href="/" class="footer--logo"><img src="assets/common/img/logo_footer.png" srcset="assets/common/img/logo_footer@2x.png 2x" alt=""></a>
+					<div class="footer--social">
+						<a class="social--item" href="" class="footer--logo"><img src="assets/common/img/social_fb.png" srcset="assets/common/img/social_fb@2x.png 2x" alt=""></a>
+					</div>
+					<div class="footer--copy">
+						&copy; 2017 <a href="/">Automagnat.ee</a>. All rights reserved
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

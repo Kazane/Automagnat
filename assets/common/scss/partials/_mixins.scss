@@ -1,0 +1,58 @@
+@mixin media($point) {
+	@if $point == mobile {
+		@media (min-width: 300px) { @content; }
+	}
+	@else if $point == mobile-landscape {
+		@media (min-width: 568px) { @content; }
+	}
+	@else if $point == tablet {
+		@media (min-width: 768px) { @content; }
+	}
+	@else if $point == tablet-landscape {
+		@media (min-width: 1024px) { @content; }
+	}
+	@else if $point == desktop {
+		@media (min-width: 1280px)  { @content; }
+	}
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+@include font-face(CircularStd-Book, "../../../assets/fonts/CircularStd-Book");
+@include font-face(CircularStd-Black, "../../../assets/fonts/CircularStd-Black");
+@include font-face(CircularStd-Medium, "../../../assets/fonts/CircularStd-Medium");
+
+
+/* Indent */
+
+@mixin indent {
+	margin-bottom: 80px;
+	@include media(tablet-landscape) {
+		margin-bottom: 220px;
+	}
+}
