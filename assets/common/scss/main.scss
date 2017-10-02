@@ -344,36 +344,29 @@ button {
 	flex-direction: row;
 }
 
-.slider-point {
-	cursor: pointer;
-	position: absolute;
-	left: 0;
-	top: 0;
-	margin: 0;
-	padding: 0;
-	z-index: 1;
-	opacity: 0;
-}
 
-.slider-point + span {
+.slider-controler--spot {
 	display: block;
 	width: 12px;
 	height: 12px;
 	box-shadow: inset 0 0 0 2px rgba($body, 0.16);
 	border-radius: 100%;
 	cursor: pointer;
-	position: absolute;
-	left: 0;
-	top: 0;
+	margin-right: 12px;
+	&:hover {
+		box-shadow: inset 0 0 0 2px rgba($body, 0.40);
+	}
+	&:last-child {
+		margin-right: 0;
+	}
 }
 
-.slider-point:hover + span {
-	box-shadow: inset 0 0 0 2px rgba($body, 0.40);
-}
-
-.slider-point:checked + span {
+.active {
 	box-shadow: none;
 	background-color: $main;
+	&:hover {
+		box-shadow: none;
+	}
 }
 
 .slider-controler--group {

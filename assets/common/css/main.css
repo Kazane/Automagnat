@@ -861,17 +861,7 @@ button {
       -ms-flex-direction: row;
           flex-direction: row; }
 
-.slider-point {
-  cursor: pointer;
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  z-index: 1;
-  opacity: 0; }
-
-.slider-point + span {
+.slider-controler--spot {
   display: block;
   width: 12px;
   height: 12px;
@@ -879,18 +869,20 @@ button {
           box-shadow: inset 0 0 0 2px rgba(61, 64, 81, 0.16);
   border-radius: 100%;
   cursor: pointer;
-  position: absolute;
-  left: 0;
-  top: 0; }
+  margin-right: 12px; }
+  .slider-controler--spot:hover {
+    -webkit-box-shadow: inset 0 0 0 2px rgba(61, 64, 81, 0.4);
+            box-shadow: inset 0 0 0 2px rgba(61, 64, 81, 0.4); }
+  .slider-controler--spot:last-child {
+    margin-right: 0; }
 
-.slider-point:hover + span {
-  -webkit-box-shadow: inset 0 0 0 2px rgba(61, 64, 81, 0.4);
-          box-shadow: inset 0 0 0 2px rgba(61, 64, 81, 0.4); }
-
-.slider-point:checked + span {
+.active {
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #00B3FF; }
+  .active:hover {
+    -webkit-box-shadow: none;
+            box-shadow: none; }
 
 .slider-controler--group {
   position: relative;
