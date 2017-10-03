@@ -7,9 +7,15 @@
 	<meta name="description" content="Продай свой авто быстро и выгодно, Sell your car fast and profitably">
 	<meta name="robots" content="index, follow">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="assets/common/js/main.js"></script>
 	<link rel="stylesheet" href="assets/common/css/main.css">
+	<style>
+		.feedback.feedback-loading .feedback-item ~ .feedback-item {
+			display: none;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<script src="assets/common/js/main.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -167,19 +173,25 @@
 				<div class="row">
 					<div class="col2 col2--extra-padding">
 						<h2 class="fancy-title">Отзывы <br> Клиентов</h2>
-						<div class="slider-controler">
-							<a href="" class="slider-controler--spot active"></a>
-							<a href="" class="slider-controler--spot"></a>
-							<a href="" class="slider-controler--spot"></a>
+						<div id="feedback-pager" class="slider-controler">
+							<a data-slide-index="0" href="" class="slider-controler--spot"></a>
+							<a data-slide-index="1" href="" class="slider-controler--spot"></a>
 						</div>
 					</div>
 					<div class="col2">
-						<div class="feedback">
-							<div class="feedback-item item-1">
+						<div class="feedback feedback-loading">
+							<div class="feedback-item">
 								<figure class="feedback--pic">
 									<img src="https://data.fantlab.ru/images/autors/36649" alt="">
 								</figure>
 								<h3>Дмитрий Иванов</h3>
+								<p>Я был обладателем BMW 7 seria, после 15 лет использования и постоянного ремонта машины, было решено продать ее но проблема была в том что она никому была не нужна. После долгих раздумий, было решено обратится в automagnat.ee где мне предложили неплохую сумму за данный авто. Деньги перевели как и было обещено в течении 15 минут!</p>
+							</div>
+							<div class="feedback-item">
+								<figure class="feedback--pic">
+									<img src="https://data.fantlab.ru/images/autors/36649" alt="">
+								</figure>
+								<h3>Иван Иванов</h3>
 								<p>Я был обладателем BMW 7 seria, после 15 лет использования и постоянного ремонта машины, было решено продать ее но проблема была в том что она никому была не нужна. После долгих раздумий, было решено обратится в automagnat.ee где мне предложили неплохую сумму за данный авто. Деньги перевели как и было обещено в течении 15 минут!</p>
 							</div>
 						</div>
