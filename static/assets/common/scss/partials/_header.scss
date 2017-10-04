@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 	margin-bottom: 24px;
 	@include media(tablet) {
-		margin-bottom: 64px;	
+		margin-bottom: 64px;
 	}
 	@include media(tablet-landscape) {
 		margin-bottom: 120px;
