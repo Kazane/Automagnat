@@ -12,6 +12,7 @@
   },
   "homepage": "https://github.com/Kazane/Automagnat#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.1"
   }
 }
