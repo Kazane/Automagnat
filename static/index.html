@@ -42,6 +42,10 @@
 			margin-right: 15px;
 		}
 
+		#request-form input[name="email"].invalid {
+			border: 1px solid red;
+		}
+
 	</style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/3.6.3/superagent.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -127,13 +131,13 @@
 								</div>
 								<div class="field-group">
 									<label class="field-group--label" for="year">Год выпуска</label>
-									<select class="field-group--select"><option></option></select>
+									<select name="year" class="field-group--select"></select>
 								</div>
 							</div>
 							<div class="query-form__row">
 								<div class="field-group">
 									<label class="field-group--label" for="km">Показ одометра (км)</label>
-									<input class="field-group--input" name="km" id="km" type="text">
+									<input class="field-group--input" name="km" id="km" type="number">
 								</div>
 								<div class="field-group">
 									<label class="field-group--label" for="checkup">Тех. осмотор</label>
@@ -147,7 +151,7 @@
 								</div>
 								<div class="field-group">
 									<label class="field-group--label" for="price">Цена</label>
-									<input class="field-group--input" name="price" id="price" type="text">
+									<input class="field-group--input" name="price" id="price" type="number">
 								</div>
 							</div>
 							<div class="query-form__row">
@@ -163,7 +167,7 @@
 							<div class="query-form__row">
 								<div class="field-group">
 									<label class="field-group--label" for="email">Email</label>
-									<input class="field-group--input" name="email" id="email" type="text">
+									<input class="field-group--input" name="email" id="email" type="email" required>
 								</div>
 								<div class="field-group">
 									<label class="field-group--label" for="carlocation">Местоположение автомобиля</label>
