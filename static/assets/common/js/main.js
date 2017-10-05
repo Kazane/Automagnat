@@ -153,10 +153,20 @@ $(document).ready(function() {
 		var formDataToSend = getDataToSend($(this).serializeArray());
 		var filesList = convertFilesToArray(event.currentTarget.files.files);
 		var isEmailEmpty = !Boolean(formDataToSend.email);
+		var totalFileSize = 0;
+
+		for (var i = 0; i < filesList.length; i++) {
+			totalFileSize += filesList[i].size;
+		}
+
+		var ifFileSizeSuitable = totalFileSize < 5000000;
 
 		$(this).find('[name="email"]').toggleClass('invalid', isEmailEmpty);
+		$(this)
+			.find('.query-form__upload')
+			.toggleClass('invalid', !ifFileSizeSuitable);
 
-		if (isEmailEmpty) return false;
+		if (isEmailEmpty || !ifFileSizeSuitable) return false;
 
 		try {
 			Promise.all(imagesToBase64(filesList))
