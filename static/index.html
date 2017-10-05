@@ -12,6 +12,32 @@
 		.feedback.feedback-loading .feedback-item ~ .feedback-item {
 			display: none;
 		}
+		#request-form .query-form__upload input[type="file"] {
+			display: none;
+		}
+
+		#request-form .query-form__upload.has-files .query-form__upload--title {
+			display: none;
+		}
+
+		#request-form .query-form__upload.has-files .query-form__upload--add {
+			display: none;
+		}
+
+		#request-form .files .file {
+			margin-bottom: 10px;
+		}
+
+		#request-form .files .file .name {
+			width: 200px;
+			display: inline-block;
+			float: left;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin-right: 15px;
+		}
+
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.12/jquery.bxslider.min.js"></script>
@@ -139,30 +165,13 @@
 									<input class="field-group--input" name="carlocation" id="carlocation" type="text">
 								</div>
 							</div>
-							<div class="query-form__upload query-form--initial">
-								Перетащите или прикрепите фотографии
-								<p><a href="" class="query-form__upload--add add-button">Прикрепить файл</a></p>
-							</div>
-							<!-- <div class="query-form__upload">
-								<div class="query-form__upload--wrapper">
-									<div class="query-form__upload--col">
-										<a href="" class="query-form--remove"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icon_delete</title><defs><circle id="a" cx="8" cy="8" r="8"/></defs><g fill="none" fill-rule="evenodd"><g transform="translate(2 2)"><use fill="#C7C8D1" xlink:href="#a"/><circle stroke="#FFF" stroke-width="2" cx="8" cy="8" r="9"/></g><path d="M7 7l6 6m0-6l-6 6" stroke="#FFF" stroke-width="2"/></g></svg></a>
-										<span class="query-form--photo"><img src="https://a.d-cd.net/52a6e0as-480.jpg"></span>
-									</div>
-									<div class="query-form__upload--col">
-										<a href="" class="query-form--remove"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icon_delete</title><defs><circle id="a" cx="8" cy="8" r="8"/></defs><g fill="none" fill-rule="evenodd"><g transform="translate(2 2)"><use fill="#C7C8D1" xlink:href="#a"/><circle stroke="#FFF" stroke-width="2" cx="8" cy="8" r="9"/></g><path d="M7 7l6 6m0-6l-6 6" stroke="#FFF" stroke-width="2"/></g></svg></a>
-										<span class="query-form--photo"><img src="https://a.d-cd.net/52a6e0as-480.jpg"></span>
-									</div>
-									<div class="query-form__upload--col">
-										<a href="" class="query-form--remove"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>icon_delete</title><defs><circle id="a" cx="8" cy="8" r="8"/></defs><g fill="none" fill-rule="evenodd"><g transform="translate(2 2)"><use fill="#C7C8D1" xlink:href="#a"/><circle stroke="#FFF" stroke-width="2" cx="8" cy="8" r="9"/></g><path d="M7 7l6 6m0-6l-6 6" stroke="#FFF" stroke-width="2"/></g></svg></a>
-										<span class="query-form--photo"><img src="https://a.d-cd.net/52a6e0as-480.jpg"></span>
-									</div>
-									<div class="query-form__upload--col">
-										<a href="" class="query-form__upload--add">Прикрепить файл</a>
-									</div>
-								</div>
-							</div> -->
-							<button class="button button--block">Отправить запрос</button>
+							<label class="query-form__upload query-form--initial">
+								<input type="file" name="files" accept=".jpg, .jpeg, .png" multiple/>
+								<span class="query-form__upload--title">Перетащите или прикрепите фотографии</span>
+								<p class="query-form__upload--add add-button">Прикрепить файл</p>
+								<div class="files"></div>
+							</label>
+							<button type="submit" class="button button--block">Отправить запрос</button>
 						</form>
 					</div>
 				</div>
