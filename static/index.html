@@ -42,7 +42,8 @@
 			margin-right: 15px;
 		}
 
-		#request-form input[name="email"].invalid {
+		#request-form input[name="email"].invalid,
+		#request-form .query-form__upload.invalid {
 			border: 1px solid red;
 		}
 
@@ -176,7 +177,7 @@
 							</div>
 							<label class="query-form__upload query-form--initial">
 								<input type="file" name="files" accept=".jpg, .jpeg, .png" multiple/>
-								<span class="query-form__upload--title">Перетащите или прикрепите фотографии</span>
+								<span class="query-form__upload--title">Перетащите или прикрепите фотографии (max. 5MB)</span>
 								<p class="query-form__upload--add add-button">Прикрепить файл</p>
 								<div class="files"></div>
 							</label>
