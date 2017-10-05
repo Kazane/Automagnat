@@ -58,8 +58,19 @@ $(document).ready(function() {
 			url: '/new-request',
 			data: formDataToSend,
 			method: 'POST',
+            error: function () {
+                var alert = $('#request-form .alert--error');
+
+                alert.removeClass('hidden');
+            },
 			success: function() {
-				debugger;
+                var alert = $('#request-form .alert--success');
+
+                alert.removeClass('hidden');
+
+                setTimeout(function () {
+                    alert.addClass('hidden');
+                }, 5000);
 			},
 		});
 	});

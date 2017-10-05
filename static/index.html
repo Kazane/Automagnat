@@ -9,6 +9,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="assets/common/css/main.css">
 	<style>
+		.hidden {
+			display: none;
+		}
+
 		.feedback.feedback-loading .feedback-item ~ .feedback-item {
 			display: none;
 		}
@@ -103,8 +107,8 @@
 					</div>
 					<div class="col2">
 						<form id="request-form" class="query-form">
-							<div class="alert alert--error">Заполните вначале поле "Марка автомобиля"</div>
-							<div class="alert alert--success">Спасибо, ваш запрос успешно отправлен!</div>
+							<div class="alert alert--error hidden">Произошла ошибка при отправке. Свяжитесь с нами info@automagnat.ee</div>
+							<div class="alert alert--success hidden">Спасибо, ваш запрос успешно отправлен!</div>
 							<div class="query-form__row">
 								<div class="field-group">
 									<label class="field-group--label" for="carbrand">Марка автомобиля</label>
