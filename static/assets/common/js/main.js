@@ -8,6 +8,79 @@ function returnFileSize(number) {
   }
 }
 
+function convertFilesToArray(files) {
+    var result = [];
+
+    if (files.length === 0) return result;
+
+    for (var file in files) {
+        var isFile = files[file] instanceof File;
+
+        if (isFile) {
+            result.push(files[file]);
+        }
+    }
+
+    return result;
+}
+
+
+function getDataToSend(formData) {
+    var formDataToSend = {};
+
+    for (var i = 0; i < formData.length; i++) {
+        formDataToSend[formData[i].name] = formData[i].value || '';
+    }
+
+    return formDataToSend
+}
+
+function imagesToBase64(images) {
+    return images.map(function(image) {
+        return new Promise(function (success, fail) {
+            var reader  = new FileReader();
+
+            reader.addEventListener('load', function () {
+                success({
+                    content: reader.result && reader.result.substr(reader.result.indexOf(',') + 1),
+                    filename: image.name,
+                    type: image.type
+                });
+            });
+
+            reader.readAsDataURL(image);
+        });
+    });
+}
+
+function submitErrorHandler() {
+    $('#request-form .alert--error').removeClass('hidden');
+}
+
+function submitSuccessHandler() {
+    var alert = $('#request-form .alert--success');
+
+    alert.removeClass('hidden');
+
+    setTimeout(function () {
+        alert.addClass('hidden');
+    }, 5000);
+}
+
+function submitForm(formData) {
+    superagent
+        .post('/new-request')
+        .set('Accept', 'application/json')
+		.send(formData)
+        .end(function (err) {
+            if (err) {
+                submitErrorHandler(err);
+            } else {
+                submitSuccessHandler();
+            }
+        });
+}
+
 $(document).ready(function() {
 	$('.sliding-link').click(function(e) {
 		e.preventDefault();
@@ -24,54 +97,40 @@ $(document).ready(function() {
 	});
 
 	$('#request-form input[name=files]').change(function (event) {
-		var files = event.currentTarget.files;
 		var $parentContainer = $(event.currentTarget).parent();
 		var $filesInfoContainer = $parentContainer.find('.files');
-		var hasFiles = false;
 
-		for (var file in files) {
-			var isFile = files[file] instanceof File;
+        var files = event.currentTarget.files;
+        var filesList = convertFilesToArray(files);
+		var hasFiles = filesList.length > 0;
 
-			if (isFile) {
-				var name = files[file].name;
-				var size = returnFileSize(files[file].size);
+        $parentContainer.toggleClass('has-files', hasFiles);
 
-				$filesInfoContainer.append('<div class="file"><span class="name">' + name + '</span><span class="size">' + size + '</span></div>');
-				hasFiles = true;
-			}
+		for (var i = 0; i < filesList.length; i++) {
+            var file = filesList[i];
+            var name = file.name;
+            var size = returnFileSize(file.size);
+
+            $filesInfoContainer.append('<div class="file"><span class="name">' + name + '</span><span class="size">' + size + '</span></div>');
 		}
-
-		$parentContainer.toggleClass('has-files', hasFiles);
 	});
 
 	$('#request-form').submit(function(event) {
 		event.preventDefault();
 
-        var formData = $(this).serializeArray();
-        var formDataToSend = {};
+        var formDataToSend = getDataToSend($(this).serializeArray());
+        var filesList = convertFilesToArray(event.currentTarget.files.files);
 
-        for (var i = 0; i < formData.length; i++) {
-            formDataToSend[formData[i].name] = formData[i].value || '';
+        try {
+            Promise.all(imagesToBase64(filesList))
+                .then(function (results) {
+                    formDataToSend.files = results;
+
+                    submitForm(formDataToSend);
+                })
+                .catch(submitErrorHandler);
+        } catch (error) {
+            submitErrorHandler(error);
         }
-
-		$.ajax({
-			url: '/new-request',
-			data: formDataToSend,
-			method: 'POST',
-            error: function () {
-                var alert = $('#request-form .alert--error');
-
-                alert.removeClass('hidden');
-            },
-			success: function() {
-                var alert = $('#request-form .alert--success');
-
-                alert.removeClass('hidden');
-
-                setTimeout(function () {
-                    alert.addClass('hidden');
-                }, 5000);
-			},
-		});
 	});
 });
