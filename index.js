@@ -5,7 +5,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.use(bodyParser.json({ limit: 6000000 }));
+app.use(bodyParser.json({ limit: 11000000 }));
 app.use(express.static(path.resolve(__dirname, 'static')));
 
 app.post('/new-request', (req, res) => {

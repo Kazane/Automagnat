@@ -35,7 +35,7 @@ function getDataToSend(formData) {
 }
 
 function imagesToBase64(images) {
-	return images.map(function(image) {
+	return images.map(function(image, index) {
 		return new Promise(function(success, fail) {
 			var reader = new FileReader();
 
@@ -46,6 +46,7 @@ function imagesToBase64(images) {
 						reader.result.substr(reader.result.indexOf(',') + 1),
 					filename: image.name,
 					type: image.type,
+					index: index
 				});
 			});
 
@@ -123,27 +124,35 @@ $(document).ready(function() {
 	$('#request-form select[name=year]').append(createYears());
 
 	$('#request-form input[name=files]').change(function(event) {
-		var $parentContainer = $(event.currentTarget).parent();
-		var $filesInfoContainer = $parentContainer.find('.files');
-
+		var $previewContainer = $('#request-form').find('.query-form__upload.query-form__upload--preview');
+		var $previewWrapper = $previewContainer.find('.query-form__upload--wrapper');
 		var files = event.currentTarget.files;
 		var filesList = convertFilesToArray(files);
 		var hasFiles = filesList.length > 0;
 
-		$parentContainer.toggleClass('has-files', hasFiles);
+		$previewContainer.toggleClass('has-files', hasFiles);
 
-		for (var i = 0; i < filesList.length; i++) {
-			var file = filesList[i];
-			var name = file.name;
-			var size = returnFileSize(file.size);
+		if (hasFiles) {
+			try {
+				Promise.all(imagesToBase64(filesList))
+					.then(function (images) {
 
-			$filesInfoContainer.append(
-				'<div class="file"><span class="name">' +
-					name +
-					'</span><span class="size">' +
-					size +
-					'</span></div>'
-			);
+						const previews = images.map(function (image) {
+							return `
+								<div class="query-form__upload--col" data-index=${image.index}>
+									<span class="query-form--photo"><img src="data:image/png;base64,${image.content}"></span>
+								</div>
+							`;
+						});
+
+						$previewWrapper.append(previews);
+					})
+					.catch(function (e) {
+						console.log('e', e);
+					})
+			} catch (e) {
+				console.log('e', e);
+			}
 		}
 	});
 
@@ -159,7 +168,7 @@ $(document).ready(function() {
 			totalFileSize += filesList[i].size;
 		}
 
-		var ifFileSizeSuitable = totalFileSize < 5000000;
+		var ifFileSizeSuitable = totalFileSize < 10000000;
 
 		$(this).find('[name="email"]').toggleClass('invalid', isEmailEmpty);
 		$(this)
